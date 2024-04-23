@@ -7,7 +7,7 @@ from .serializers import FriendSerializer
 class FriendList(generics.ListCreateAPIView):
     """
     List all friends, i.e. all instances of a user
-    following another user'.
+    friended another user'.
     Create a friend, i.e. follow a user if logged in.
     Perform_create: associate the current logged in user with a friend.
     """

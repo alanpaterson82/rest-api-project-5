@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 class Friend(models.Model):
     """
     Friend model, related to 'owner' and 'friended'.
-    'owner' is a User that is following a User.
-    'friended' is a User that is followed by 'owner'.
+    'owner' is a User that is friending a User.
+    'friended' is a User that is friended by 'owner'.
     We need the related_name attribute so that django can differentiate.
     between 'owner' and 'friended' who both are User model instances.
     'unique_together' makes sure a user can't 'double friend' the same user.
