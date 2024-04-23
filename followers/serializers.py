@@ -1,20 +1,20 @@
 from django.db import IntegrityError
 from rest_framework import serializers
-from .models import Friend
+from .models import follow
 
 
-class FriendSerializer(serializers.ModelSerializer):
+class FollowerSerializer(serializers.ModelSerializer):
     """
-    Serializer for the Friend model
-    Create method handles the unique constraint on 'owner' and 'friended'
+    Serializer for the follow model
+    Create method handles the unique constraint on 'owner' and 'followed'
     """
     owner = serializers.ReadOnlyField(source='owner.username')
-    friended_name = serializers.ReadOnlyField(source='friended.username')
+    followed_name = serializers.ReadOnlyField(source='followed.username')
 
     class Meta:
-        model = Friend
+        model = follow
         fields = [
-            'id', 'owner', 'created_at', 'friended', 'friended_name'
+            'id', 'owner', 'created_at', 'followed', 'followed_name'
         ]
 
     def create(self, validated_data):
